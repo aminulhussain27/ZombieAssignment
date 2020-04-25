@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\DestroyAfterTimeParticle.cs" />
     <Compile Include="Assets\Scripts\GunInventory.cs" />
     <Compile Include="Assets\Scripts\GunScript.cs" />
+    <Compile Include="Assets\Scripts\LoadingSceneHandler.cs" />
     <Compile Include="Assets\Scripts\MouseLookScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.cs">
     <Files>
       <File FileName="Assets/Scripts/BulletScript.cs" Line="23" Column="6" />
-      <File FileName="Assets/Scripts/GunScript.cs" Line="31" Column="30" />
-      <File FileName="Assets/Scripts/MouseLookScript.cs" Line="35" Column="40" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="392" Column="1" />
+      <File FileName="Assets/Scripts/GunScript.cs" Line="41" Column="6" />
+      <File FileName="Assets/Scripts/MouseLookScript.cs" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="66" Column="170" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
