@@ -33,7 +33,7 @@ public class BulletScript : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 5f);
     }
 
 }
