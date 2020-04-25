@@ -120,7 +120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &460088
 Transform:
   m_ObjectHideFlags: 0
@@ -320,22 +320,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
-  cameraMain: {fileID: 0}
-  jumpForce: 15000
-  cameraPosition: {x: 0, y: 0, z: 0}
-  maxSpeed: 5
   deaccelerationSpeed: 20
   accelerationSpeed: 100000
-  grounded: 0
+  maxSpeed: 5
+  cameraPosition: {x: 0, y: 0, z: 0}
+  environment: {fileID: 0}
+  cameraMain: {fileID: 0}
   bulletSpawn: {fileID: 0}
-  been_to_meele_anim: 0
-  bloodEffect: {fileID: 1013274939826982, guid: ffbf169ab9dcfdc45ae14010bc82a6b2,
-    type: 3}
-  _jumpSound: {fileID: 0}
   _freakingZombiesSound: {fileID: 0}
   _hitSound: {fileID: 0}
   _walkSound: {fileID: 0}
-  _runSound: {fileID: 0}
 --- !u!114 &11478776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +361,6 @@ MonoBehaviour:
   topAngleView: 60
   bottomAngleView: -45
   weapon: {fileID: 0}
-  showFps: 1
 --- !u!114 &11414154
 MonoBehaviour:
   m_ObjectHideFlags: 0
