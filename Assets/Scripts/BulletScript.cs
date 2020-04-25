@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
     private void Start()
     {
 
-        GetComponent<Rigidbody>().AddForce(transform.forward * 500f);
+        GetComponent<Rigidbody>().AddForce(transform.forward * 900f);
     }
     /*
 	* Uppon bullet creation with this script attatched,

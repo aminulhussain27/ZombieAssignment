@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Start()
     {
-        transform.position = Vector3.zero;
+        transform.position = new Vector3(0, 10, 0);
     }
 
 
