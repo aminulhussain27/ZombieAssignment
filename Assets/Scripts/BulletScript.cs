@@ -21,7 +21,6 @@ public class BulletScript : MonoBehaviour
 	*/
     void Update()
     {
-
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, ~ignoreLayer))
         {
             if (decalHitWall)

@@ -32,7 +32,7 @@ public class GunScript : MonoBehaviour
     private Camera cameraComponent;
     private Transform gunPlaceHolder;
 
-    private PlayerMovementScript pmS;
+    private PlayerMovement pmS;
 
     /*
 	 * Collection the variables upon awake that we need.
@@ -46,7 +46,7 @@ public class GunScript : MonoBehaviour
         mainCamera = mls.myCamera;
         secondCamera = GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
         cameraComponent = mainCamera.GetComponent<Camera>();
-        pmS = player.GetComponent<PlayerMovementScript>();
+        pmS = player.GetComponent<PlayerMovement>();
 
         bulletSpawnPlace = GameObject.FindGameObjectWithTag("BulletSpawn");
         hitMarker = transform.Find("hitMarkerSound").GetComponent<AudioSource>();
@@ -170,7 +170,7 @@ public class GunScript : MonoBehaviour
         {//ifnot shooting
 
             expandValues_crosshair += new Vector2(20, 40) * Time.deltaTime;
-            if (player.GetComponent<PlayerMovementScript>().maxSpeed < runningSpeed)
+            if (player.GetComponent<PlayerMovement>().maxSpeed < runningSpeed)
             { //not running
                 expandValues_crosshair = new Vector2(Mathf.Clamp(expandValues_crosshair.x, 0, 10), Mathf.Clamp(expandValues_crosshair.y, 0, 20));
                 fadeout_value = Mathf.Lerp(fadeout_value, 1, Time.deltaTime * 2);
@@ -528,8 +528,8 @@ public class GunScript : MonoBehaviour
             if (meeleAttack == false && pmS.maxSpeed != runningSpeed)
             {
                 //print ("tu sam");
-                if (player.GetComponent<PlayerMovementScript>()._freakingZombiesSound)
-                    player.GetComponent<PlayerMovementScript>()._freakingZombiesSound.Play();
+                if (player.GetComponent<PlayerMovement>()._freakingZombiesSound)
+                    player.GetComponent<PlayerMovement>()._freakingZombiesSound.Play();
                 else
                     print("Missing Freaking Zombies Sound");
 
