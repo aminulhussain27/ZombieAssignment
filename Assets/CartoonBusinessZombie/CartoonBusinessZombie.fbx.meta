@@ -1,171 +1,68 @@
 fileFormatVersion: 2
 guid: 0dc5e69150e35074f960d9750a6b00c2
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: //RootNode
+    100004: def_chest
+    100006: def_foot_L
+    100008: def_foot_R
+    100010: def_hand_L
+    100012: def_hand_R
+    100014: def_head
+    100016: def_hips
+    100018: def_neck
+    100020: def_shoulder_L
+    100022: def_shoulder_R
+    100024: def_spine
+    100026: def_toe_L
+    100028: def_toe_R
+    100030: def_upperArmCloth_L
+    100032: def_upperArmCloth_R
+    100034: defM_forearm_L
+    100036: defM_forearm_R
+    100038: defM_shin_L
+    100040: defM_shin_R
+    100042: defM_thigh_L
+    100044: defM_thigh_R
+    100046: Group31640_000
+    400000: Armature
+    400002: //RootNode
+    400004: def_chest
+    400006: def_foot_L
+    400008: def_foot_R
+    400010: def_hand_L
+    400012: def_hand_R
+    400014: def_head
+    400016: def_hips
+    400018: def_neck
+    400020: def_shoulder_L
+    400022: def_shoulder_R
+    400024: def_spine
+    400026: def_toe_L
+    400028: def_toe_R
+    400030: def_upperArmCloth_L
+    400032: def_upperArmCloth_R
+    400034: defM_forearm_L
+    400036: defM_forearm_R
+    400038: defM_shin_L
+    400040: defM_shin_R
+    400042: defM_thigh_L
+    400044: defM_thigh_R
+    400046: Group31640_000
+    4300000: Group31640_000
+    7400000: Idle
+    7400002: Walk
+    7400004: WalkOffset
+    9500000: //RootNode
+    13700000: Group31640_000
+  externalObjects:
   - first:
-      1: 100000
-    second: Armature
-  - first:
-      1: 100002
-    second: //RootNode
-  - first:
-      1: 100004
-    second: def_chest
-  - first:
-      1: 100006
-    second: def_foot_L
-  - first:
-      1: 100008
-    second: def_foot_R
-  - first:
-      1: 100010
-    second: def_hand_L
-  - first:
-      1: 100012
-    second: def_hand_R
-  - first:
-      1: 100014
-    second: def_head
-  - first:
-      1: 100016
-    second: def_hips
-  - first:
-      1: 100018
-    second: def_neck
-  - first:
-      1: 100020
-    second: def_shoulder_L
-  - first:
-      1: 100022
-    second: def_shoulder_R
-  - first:
-      1: 100024
-    second: def_spine
-  - first:
-      1: 100026
-    second: def_toe_L
-  - first:
-      1: 100028
-    second: def_toe_R
-  - first:
-      1: 100030
-    second: def_upperArmCloth_L
-  - first:
-      1: 100032
-    second: def_upperArmCloth_R
-  - first:
-      1: 100034
-    second: defM_forearm_L
-  - first:
-      1: 100036
-    second: defM_forearm_R
-  - first:
-      1: 100038
-    second: defM_shin_L
-  - first:
-      1: 100040
-    second: defM_shin_R
-  - first:
-      1: 100042
-    second: defM_thigh_L
-  - first:
-      1: 100044
-    second: defM_thigh_R
-  - first:
-      1: 100046
-    second: Group31640_000
-  - first:
-      4: 400000
-    second: Armature
-  - first:
-      4: 400002
-    second: //RootNode
-  - first:
-      4: 400004
-    second: def_chest
-  - first:
-      4: 400006
-    second: def_foot_L
-  - first:
-      4: 400008
-    second: def_foot_R
-  - first:
-      4: 400010
-    second: def_hand_L
-  - first:
-      4: 400012
-    second: def_hand_R
-  - first:
-      4: 400014
-    second: def_head
-  - first:
-      4: 400016
-    second: def_hips
-  - first:
-      4: 400018
-    second: def_neck
-  - first:
-      4: 400020
-    second: def_shoulder_L
-  - first:
-      4: 400022
-    second: def_shoulder_R
-  - first:
-      4: 400024
-    second: def_spine
-  - first:
-      4: 400026
-    second: def_toe_L
-  - first:
-      4: 400028
-    second: def_toe_R
-  - first:
-      4: 400030
-    second: def_upperArmCloth_L
-  - first:
-      4: 400032
-    second: def_upperArmCloth_R
-  - first:
-      4: 400034
-    second: defM_forearm_L
-  - first:
-      4: 400036
-    second: defM_forearm_R
-  - first:
-      4: 400038
-    second: defM_shin_L
-  - first:
-      4: 400040
-    second: defM_shin_R
-  - first:
-      4: 400042
-    second: defM_thigh_L
-  - first:
-      4: 400044
-    second: defM_thigh_R
-  - first:
-      4: 400046
-    second: Group31640_000
-  - first:
-      43: 4300000
-    second: Group31640_000
-  - first:
-      74: 7400000
-    second: Idle
-  - first:
-      74: 7400002
-    second: Walk
-  - first:
-      74: 7400004
-    second: WalkOffset
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Group31640_000
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_000__flatColor8v2_png
+    second: {fileID: 2100000, guid: a449c783e879c61408123671d2ba3b27, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -196,7 +93,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: Idle
-      internalID: 0
       firstFrame: -1
       lastFrame: 39
       wrapMode: 0
@@ -273,7 +169,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Walk
       takeName: Walk
-      internalID: 0
       firstFrame: 0
       lastFrame: 29
       wrapMode: 0
@@ -350,7 +245,6 @@ ModelImporter:
     - serializedVersion: 16
       name: WalkOffset
       takeName: WalkOffset
-      internalID: 0
       firstFrame: 0
       lastFrame: 29
       wrapMode: 0
@@ -438,19 +332,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 180
     normalImportMode: 1
@@ -459,11 +352,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human:
     - boneName: def_hips
       humanName: Hips
@@ -761,7 +653,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

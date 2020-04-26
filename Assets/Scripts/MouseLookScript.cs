@@ -5,15 +5,15 @@ using System.Collections;
 public class MouseLookScript : MonoBehaviour
 {
 
-    [HideInInspector]
     public Transform myCamera;
-    /*
-	 * Hiding the cursor.
-	 */
+    public PlayerMovement playerMovement;
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         myCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        playerMovement = GetComponent<PlayerMovement>();
+
+        mouseSensitvity = mouseSensitvity_notAiming;
     }
 
     /*
@@ -25,19 +25,18 @@ public class MouseLookScript : MonoBehaviour
 
         MouseInputMovement();
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
 
-        }
+        //}
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
 
-        if (GetComponent<PlayerMovement>().currentSpeed > 1)
+        if (playerMovement.currentSpeed > 1)
             HeadMovement();
 
     }
 
-    [Header("Z Rotation Camera")]
     [HideInInspector] public float timer;
     [HideInInspector] public int int_timer;
     [HideInInspector] public float zRotation;
@@ -45,9 +44,7 @@ public class MouseLookScript : MonoBehaviour
     [HideInInspector] public float timeSpeed = 2;
 
     [HideInInspector] public float timerToRotateZ;
-    /*
-	* Switching Z rotation and applying to camera in camera Rotation().
-	*/
+
     void HeadMovement()
     {
         timer += timeSpeed * Time.deltaTime;
@@ -63,40 +60,15 @@ public class MouseLookScript : MonoBehaviour
 
         zRotation = Mathf.Lerp(zRotation, wantedZ, Time.deltaTime * timerToRotateZ);
     }
-    [Tooltip("Current mouse sensivity, changes in the weapon properties")]
     public float mouseSensitvity = 0;
-    [HideInInspector]
+
     public float mouseSensitvity_notAiming = 300;
-    [HideInInspector]
+
     public float mouseSensitvity_aiming = 50;
 
-    /*
-    * FixedUpdate()
-    * If aiming set the mouse sensitvity from our variables and vice versa.
-    */
     void FixedUpdate()
     {
-
-        /*
-         * Reduxing mouse sensitvity if we are aiming.
-         */
-        if (Input.GetAxis("Fire2") != 0)
-        {
-            mouseSensitvity = mouseSensitvity_aiming;
-        }
-        else if (GetComponent<PlayerMovement>().maxSpeed > 5)
-        {
-            mouseSensitvity = mouseSensitvity_notAiming;
-        }
-        else
-        {
-            mouseSensitvity = mouseSensitvity_notAiming;
-        }
-
-
         ApplyingStuff();
-
-
     }
 
 
