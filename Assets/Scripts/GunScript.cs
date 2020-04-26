@@ -3,12 +3,11 @@ using System.Collections;
 
 public enum GunStyles
 {
-    nonautomatic, automatic
+    semi, automatic
 }
 public class GunScript : MonoBehaviour
 {
     public GunStyles currentStyle;
-    public MouseLookScript mouseLook;
     public int walkingSpeed = 3;
     public float bulletsIHave = 20;
     public float bulletsInTheGun = 5;
@@ -19,7 +18,7 @@ public class GunScript : MonoBehaviour
 
     public Vector3 currentGunPosition;
     public Vector3 restPlacePosition;
-    //public Vector3 aimPlacePosition;
+
     public float gunAimTime = 0.1f;
     public bool reloading;
     private Vector3 gunPosVelocity;
@@ -44,7 +43,6 @@ public class GunScript : MonoBehaviour
     [Header("Sensitvity of the gun")]
     public float mouseSensitvity_notAiming = 10;
     public float mouseSensitvity_aiming = 5;
-    //public float mouseSensitvity_running = 4;
 
     private Vector3 velV;
     public Transform mainCamera;
@@ -65,7 +63,6 @@ public class GunScript : MonoBehaviour
 
     public float recoilAmount_y_non = 0.5f;
 
-
     public float velocity_z_recoil, velocity_x_recoil, velocity_y_recoil;
 
     public float recoilOverTime_z = 0.5f;
@@ -80,40 +77,32 @@ public class GunScript : MonoBehaviour
 
     public float secondCameraZoomRatio_notAiming = 60;
 
-    //public float secondCameraZoomRatio_aiming = 40;
-
     public float gunPrecision;
 
     public string reloadAnimationName = "Player_Reload";
-    //public string aimingAnimationName = "Player_AImpose";
 
     void Awake()
     {
-        mouseLook = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLookScript>();
-        player = mouseLook.transform;
-        mainCamera = mouseLook.myCamera;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().transform;//mouseLook.transform;
+        playerMovement = player.GetComponent<PlayerMovement>();
+        mainCamera = playerMovement.cameraMain;//mouseLook.myCamera;
         secondCamera = GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
         cameraComponent = mainCamera.GetComponent<Camera>();
-        playerMovement = player.GetComponent<PlayerMovement>();
-        rotationLastY = mouseLook.currentYRotation;
-        rotationLastX = mouseLook.currentCameraXRotation;
+        rotationLastY = playerMovement.currentYRotation;//mouseLook.currentYRotation;
+        rotationLastX = playerMovement.currentCameraXRotation;//mouseLook.currentCameraXRotation;
 
     }
 
     void Update()
     {
         Animations();
-
-        GiveCameraScriptMySensitvity();
-
-        PositionGun();
-
+        UpdateGunPosition();
         Shooting();
     }
 
     void FixedUpdate()
     {
-        RotationGun();
+        UpdateGunRotation();
 
         gunPrecision = gunPrecision_notAiming;
         recoilAmount_x = recoilAmount_x_non;
@@ -124,13 +113,7 @@ public class GunScript : MonoBehaviour
         secondCamera.fieldOfView = Mathf.SmoothDamp(secondCamera.fieldOfView, secondCameraZoomRatio_notAiming, ref secondCameraZoomVelocity, gunAimTime);
     }
 
-    void GiveCameraScriptMySensitvity()
-    {
-        mouseLook.mouseSensitvity_notAiming = mouseSensitvity_notAiming;
-        mouseLook.mouseSensitvity_aiming = mouseSensitvity_aiming;
-    }
-
-    void PositionGun()
+    void UpdateGunPosition()
     {
         transform.position = Vector3.SmoothDamp(transform.position,
             mainCamera.transform.position -
@@ -145,19 +128,19 @@ public class GunScript : MonoBehaviour
         currentRecoilYPos = Mathf.SmoothDamp(currentRecoilYPos, 0, ref velocity_y_recoil, recoilOverTime_y);
     }
 
-    void RotationGun()
+    void UpdateGunRotation()
     {
-        rotationDeltaY = mouseLook.currentYRotation - rotationLastY;
-        rotationDeltaX = mouseLook.currentCameraXRotation - rotationLastX;
+        rotationDeltaY = playerMovement.currentYRotation - rotationLastY;
+        rotationDeltaX = playerMovement.currentCameraXRotation - rotationLastX;
 
-        rotationLastY = mouseLook.currentYRotation;
-        rotationLastX = mouseLook.currentCameraXRotation;
+        rotationLastY = playerMovement.currentYRotation;
+        rotationLastX = playerMovement.currentCameraXRotation;
 
         angularVelocityY = Mathf.Lerp(angularVelocityY, rotationDeltaY, Time.deltaTime * 5);
         angularVelocityX = Mathf.Lerp(angularVelocityX, rotationDeltaX, Time.deltaTime * 5);
 
-        gunWeightX = Mathf.SmoothDamp(gunWeightX, mouseLook.currentCameraXRotation, ref velocityGunRotate.x, rotationLagTime);
-        gunWeightY = Mathf.SmoothDamp(gunWeightY, mouseLook.currentYRotation, ref velocityGunRotate.y, rotationLagTime);
+        gunWeightX = Mathf.SmoothDamp(gunWeightX, playerMovement.currentCameraXRotation, ref velocityGunRotate.x, rotationLagTime);
+        gunWeightY = Mathf.SmoothDamp(gunWeightY, playerMovement.currentYRotation, ref velocityGunRotate.y, rotationLagTime);
 
         transform.rotation = Quaternion.Euler(gunWeightX + (angularVelocityX * forwardRotationAmount.x), gunWeightY + (angularVelocityY * forwardRotationAmount.y), 0);
     }
@@ -167,30 +150,30 @@ public class GunScript : MonoBehaviour
         currentRecoilZPos -= recoilAmount_z;
         currentRecoilXPos -= (Random.value - 0.5f) * recoilAmount_x;
         currentRecoilYPos -= (Random.value - 0.5f) * recoilAmount_y;
-        mouseLook.wantedCameraXRotation -= Mathf.Abs(currentRecoilYPos * gunPrecision);
-        mouseLook.wantedYRotation -= (currentRecoilXPos * gunPrecision);
+        playerMovement.wantedCameraXRotation -= Mathf.Abs(currentRecoilYPos * gunPrecision);
+        playerMovement.wantedYRotation -= (currentRecoilXPos * gunPrecision);
     }
 
     void Shooting()
     {
-        if (currentStyle == GunStyles.nonautomatic)
+        if (currentStyle == GunStyles.semi)
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                ShootMethod();
+                GetBullet();
             }
         }
         if (currentStyle == GunStyles.automatic)
         {
             if (Input.GetButton("Fire1"))
             {
-                ShootMethod();
+                GetBullet();
             }
         }
         waitTillNextFire -= roundsPerSecond * Time.deltaTime;
     }
 
-    private void ShootMethod()
+    private void GetBullet()
     {
         if (waitTillNextFire <= 0 && !reloading)
         {
@@ -251,13 +234,11 @@ public class GunScript : MonoBehaviour
     {
         if (handsAnimator)
         {
-
             reloading = handsAnimator.GetCurrentAnimatorStateInfo(0).IsName(reloadAnimationName);
 
             handsAnimator.SetFloat("walkSpeed", playerMovement.currentSpeed);
-            handsAnimator.SetBool("aiming", Input.GetButton("Fire2"));
             handsAnimator.SetInteger("maxSpeed", playerMovement.maxSpeed);
-            if (Input.GetKeyDown(KeyCode.R) && playerMovement.maxSpeed < 5 && !reloading)
+            if (Input.GetKeyDown(KeyCode.R) && !reloading)
             {
                 StartCoroutine("Reload_Animation");
             }

@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 2306104}
   - component: {fileID: 5427112}
   - component: {fileID: 11415148}
-  - component: {fileID: 11478776}
   - component: {fileID: 11414154}
   m_Layer: 9
   m_Name: Player
@@ -169,7 +168,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173116}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -233,42 +232,18 @@ MonoBehaviour:
   maxSpeed: 10
   cameraPosition: {x: 0, y: 0, z: 0}
   environment: {fileID: 0}
-  cameraMain: {fileID: 0}
-  bulletSpawn: {fileID: 0}
-  _freakingZombiesSound: {fileID: 0}
-  _hitSound: {fileID: 0}
-  _walkSound: {fileID: 0}
---- !u!114 &11478776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f828f55f50faf4017b1bfaaca53ebd71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCamera: {fileID: 431846}
-  timer: 0
-  int_timer: 0
-  zRotation: 0
-  wantedZ: 0
-  timeSpeed: 2
-  timerToRotateZ: 0
-  mouseSensitvity: 0
-  mouseSensitvity_notAiming: 10
-  mouseSensitvity_aiming: 5
+  cameraMain: {fileID: 431846}
+  mouseSensitvity: 4
   yRotationSpeed: 0.1
   xCameraSpeed: 0.1
   wantedYRotation: 0
   currentYRotation: 0
   wantedCameraXRotation: 0
   currentCameraXRotation: 0
-  topAngleView: 60
-  bottomAngleView: -45
-  weapon: {fileID: 0}
+  zRotation: 0
+  _freakingZombiesSound: {fileID: 0}
+  _hitSound: {fileID: 0}
+  _walkSound: {fileID: 0}
 --- !u!114 &11414154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,8 +259,8 @@ MonoBehaviour:
   currentGun: {fileID: 0}
   currentHAndsAnimator: {fileID: 0}
   gunsIHave:
-  - NewGun_semi
-  - NewGun_auto
+  - SemiAutoGun
+  - AutomaticGun
   icons: []
   switchWeaponCooldown: 0
   menuStyle: 0
