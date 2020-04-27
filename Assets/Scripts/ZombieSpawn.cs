@@ -21,6 +21,7 @@ public class ZombieSpawn : MonoBehaviour
         direction.Normalize();
 
         enemyRb.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -38,4 +39,5 @@ public class ZombieSpawn : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 }

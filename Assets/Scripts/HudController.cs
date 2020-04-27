@@ -19,9 +19,9 @@ public class HudController : MonoBehaviour
 
     private void Start()
     {
-        hudPanel.SetActive(true);
+        //hudPanel.SetActive(true);
 
-        hudPanel.SetActive(false);
+        //hudPanel.SetActive(false);
 
         gameOverPanel.SetActive(false);
 
@@ -36,7 +36,7 @@ public class HudController : MonoBehaviour
 
     // Update is called once per frame
     private void Update()
-    {       
+    {
         if (Input.GetKeyDown(KeyCode.U))
         {
             Debug.Log("keypressed");
@@ -63,6 +63,8 @@ public class HudController : MonoBehaviour
             gameOverPanel.SetActive(true);
 
             Debug.Log("GameOver");
+
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 

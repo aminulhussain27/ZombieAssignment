@@ -3,43 +3,17 @@ using System.Collections;
 
 public class BulletScript : MonoBehaviour
 {
-
-    [Tooltip("Furthest distance bullet will look for target")]
-    public float maxDistance = 1000;
-    RaycastHit hit;
-    [Tooltip("Prefab of wall damange hit. The object needs 'LevelPart' tag to create decal on it.")]
-    public GameObject decalHitWall;
-    [Tooltip("Decal will need to be sligtly infront of the wall so it doesnt cause rendeing problems so for best feel put from 0.01-0.1.")]
-    public float floatInfrontOfWall;
-
-    public LayerMask ignoreLayer;
-
     private void Start()
     {
-        GetComponent<Rigidbody>().AddForce(transform.forward * 900f);
+        GetComponent<Rigidbody>().AddForce(transform.forward * 1400f);
+        Destroy(gameObject, 2);//Auto destroy after 3 sec
     }
 
-
-    /*
-	* Uppon bullet creation with this script attatched,
-	* bullet creates a raycast which searches for corresponding tags.
-	* If raycast finds somethig it will create a decal of corresponding tag.
-	*/
-    //void Update()
-    //{
-    //    if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, ~ignoreLayer))
-    //    {
-    //        if (decalHitWall)
-    //        {
-    //            if (hit.transform.tag == "LevelPart")
-    //            {
-    //                Instantiate(decalHitWall, hit.point + hit.normal * floatInfrontOfWall, Quaternion.LookRotation(hit.normal));
-    //                Destroy(gameObject);
-    //            }
-    //        }
-    //        Destroy(gameObject);
-    //    }
-    //    Destroy(gameObject, 6f);
-    //}
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

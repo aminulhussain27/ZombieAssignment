@@ -76,9 +76,9 @@ public class AssetBundleDownloadHandler : MonoBehaviour
     //    }
     //}
 
-    public IEnumerator LoadBundle(string bundleName,System.Action<string> action)
-    {        
-        if(!IsBundleLoaded(bundleName))
+    public IEnumerator LoadBundle(string bundleName, System.Action<string> action)
+    {
+        if (!IsBundleLoaded(bundleName))
         {
             string url = unityAssets[bundleName];
 
@@ -93,15 +93,15 @@ public class AssetBundleDownloadHandler : MonoBehaviour
 
                     if (request.responseCode >= 400)
                     {
-                        action?.Invoke(NoInterenet);
+                        action.Invoke(NoInterenet);
                     }
                     else if (request.responseCode >= 500)
                     {
-                        action?.Invoke(ServerError);
+                        action.Invoke(ServerError);
                     }
                     else
                     {
-                        action?.Invoke(NoInterenet);
+                        action.Invoke(NoInterenet);
                     }
                 }
                 else
@@ -114,7 +114,7 @@ public class AssetBundleDownloadHandler : MonoBehaviour
                         {
                             assetBundles.Add(bundleName, bundle);
 
-                            action?.Invoke(Success);
+                            action.Invoke(Success);
                         }
                         else
                         {
@@ -126,7 +126,7 @@ public class AssetBundleDownloadHandler : MonoBehaviour
                 }
             }
         }
-        
+
     }
     public void UnloadAllBundles()
     {

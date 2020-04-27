@@ -13,20 +13,10 @@ public class ZombieSpawnHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        parent = transform;
         InvokeRepeating("GetZombieObject", 0.5f, 5f);
+        //GetZombieObject();
     }
-
-    //float timeGap = 5;
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    timeGap -= Time.deltaTime;
-    //    if (timeGap <= 0)
-    //    {
-    //        timeGap = 5f;
-    //        GetZombieObject();
-    //    }
-    //}
 
     void GetZombieObject()
     {
@@ -50,4 +40,5 @@ public class ZombieSpawnHandler : MonoBehaviour
     {
         CancelInvoke();
     }
+
 }
