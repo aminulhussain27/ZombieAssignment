@@ -6,14 +6,23 @@ public class PlayerMovement : MonoBehaviour
 {
     #region PlayerMovementVariables
     private Rigidbody playerRigidBody;
+
     private Vector3 slowdownV;
+
     private Vector2 horizontalMovement;
+
     public int maxSpeed = 5;
+
     public float currentSpeed;
+
     public Vector3 cameraPosition;
+
     public Environment environment;
+
     public Transform cameraMain;
+
     [HideInInspector] public float deaccelerationSpeed = 15.0f;
+
     [HideInInspector] public float accelerationSpeed = 50000.0f;
     #endregion
 
@@ -33,8 +42,10 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         playerRigidBody = GetComponent<Rigidbody>();
+
         Cursor.lockState = CursorLockMode.Locked;
     }
+
     private void Start()
     {
         transform.position = new Vector3(0, 10, 0);
@@ -44,15 +55,15 @@ public class PlayerMovement : MonoBehaviour
     {
         GetMouseInput();
     }
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
         PlayerMovementLogic();
+
         MouseAimMovement();
     }
-    /*
-	* Accordingly to input adds force and if magnitude is bigger it will clamp it.
-	* If player leaves keys it will deaccelerate
-	*/
+    
+	/* Accordingly to input adds force and if magnitude is bigger it will clamp it. If player leaves keys it will deaccelerate */
     void PlayerMovementLogic()
     {
         currentSpeed = playerRigidBody.velocity.magnitude;

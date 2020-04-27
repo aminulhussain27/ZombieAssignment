@@ -25,7 +25,7 @@ public class HudController : MonoBehaviour
 
         gameOverPanel.SetActive(false);
 
-        playerHP = 125;
+        playerHP = 130;
 
         _killCount = 0;
 
