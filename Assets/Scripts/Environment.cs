@@ -6,7 +6,6 @@ public class Environment : MonoBehaviour
 {
     public GameObject floorObject;
 
-    public Transform[] zombieSpawnPositions;
     public Transform centrePoint;
     // Start is called before the first frame update
     public float lengthOfFloor;
