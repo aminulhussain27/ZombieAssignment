@@ -16,9 +16,10 @@ public class BulletScript : MonoBehaviour
 
     private void Start()
     {
-
         GetComponent<Rigidbody>().AddForce(transform.forward * 900f);
     }
+
+
     /*
 	* Uppon bullet creation with this script attatched,
 	* bullet creates a raycast which searches for corresponding tags.
